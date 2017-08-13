@@ -4,7 +4,7 @@
       <vue-form-generator :schema="elementDefinition.settings.definition" :model="elementDefinition.settings.content" :options="formOptions"></vue-form-generator>
     </sweet-modal>
     <a class="settings" href="#" v-if="elementDefinition.settings !== undefined" v-on:click="openModal(elementDefinition.id)"><i class="fa fa-cog"></i></a>
-    <a class="delete" href="#" v-on:click="onRemove(elementDefinition.id)"><i class="fa fa-trash"></i></a>
+    <a class="delete" href="#" v-on:click="removeUIElement(elementDefinition.id)"><i class="fa fa-trash"></i></a>
     <div class="ui-element slotless" v-if="elementDefinition.content === undefined">
       <div class="icon" v-html="elementDefinition.icon"></div>
       <div class="name">{{ elementDefinition.name }}</div>
@@ -14,7 +14,7 @@
         <div class="icon" v-html="elementDefinition.icon"></div> {{ elementDefinition.name }}
       </div>
       <div class="content">
-        <inner-content v-if="elementDefinition.content !== undefined" :elementDefinition="elementDefinition" :onRemove="removeUIElement"></inner-content>
+        <inner-content v-if="elementDefinition.content !== undefined" :elementDefinition="elementDefinition"></inner-content>
       </div>
     </div>
   </div>
@@ -23,13 +23,14 @@
 <script>
 import InnerContent from './InnerContent.vue'
 import 'vue-form-generator/dist/vfg-core.css'
+import EventBus from '../event-bus'
 
 export default {
   name: 'ui-element',
   components: {
     'inner-content': InnerContent
   },
-  props: ['onRemove', 'elementDefinition'],
+  props: ['elementDefinition'],
   data () {
     return {
       formOptions: {
@@ -43,7 +44,7 @@ export default {
       this.$refs[refId].open()
     },
     removeUIElement (removedId) {
-      this.onRemove(removedId)
+      EventBus.$emit('elementDeleted', removedId)
     }
   },
   computed: {

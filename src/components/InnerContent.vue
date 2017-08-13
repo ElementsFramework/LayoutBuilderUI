@@ -5,7 +5,7 @@
   export default {
     name: 'inner-content',
     functional: true,
-    props: ['onRemove', 'elementDefinition'],
+    props: ['elementDefinition'],
     render (h, context) {
       const props = context.props
       const template = props.elementDefinition.content
