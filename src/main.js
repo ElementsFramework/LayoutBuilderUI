@@ -36,7 +36,7 @@ new Vue({
           icon: '<i class="fa fa-camera"></i>'
         }
       ],
-      list: [
+      layout: [
         {
           id: Math.random().toString(36).substring(2, 15),
           name: 'test1',
@@ -156,6 +156,6 @@ new Vue({
       submissionUrl: 'http://igor-rinkovec.from.hr/hook.php'
     }
   },
-  template: '<App :list="list" :submitUrl="submissionUrl" :uiElements="uiElements"/>',
+  template: '<App :layout="layout" :submitUrl="submissionUrl" :uiElements="uiElements"/>',
   components: { App }
 })

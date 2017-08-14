@@ -1,8 +1,8 @@
 <template>
   <div class="flex-container">
     <ui-element-picker class="element-picker" :uiElements="uiElements"></ui-element-picker>
-    <draggable class="draggable main" :list="list" :options="{group: 'ui-elements'}">
-      <ui-element v-for="m in list" v-if="m !== undefined" :key="m.id" :elementDefinition.sync="m"></ui-element>
+    <draggable class="draggable main" :list="layout" :options="{group: 'ui-elements'}">
+      <ui-element v-for="m in layout" v-if="m !== undefined" :key="m.id" :elementDefinition.sync="m"></ui-element>
     </draggable>
   </div>
 </template>
@@ -12,14 +12,14 @@
 
   export default {
     name: 'app',
-    props: ['list', 'uiElements', 'submitUrl'],
+    props: ['layout', 'uiElements', 'submitUrl'],
     methods: {
       submitChanges () {
-        this.$root.$http.post(this.submitUrl, this.list)
+        this.$root.$http.post(this.submitUrl, this.layout)
       },
       removeUIElement (removedId, list = null) {
         if (list === null) {
-          list = this.list
+          list = this.layout
         }
         for (var key in list) {
           if (list.hasOwnProperty(key) === false) {
