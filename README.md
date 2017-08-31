@@ -43,12 +43,12 @@ The definition JSON contains multiple component defintions in an array. Each def
 
 **Example definition JSON**:
 
-``` JSON
+``` javascript
 [
-	{
-      name: '2 columns',
-      icon: '<i class="fa fa-columns"></i>',
-      content: `<div class="row" slot="content" v-if="elementDefinition.contentData">
+    {
+        name: '2 columns',
+        icon: '<i class="fa fa-columns"></i>',
+        content: `<div class="row" slot="content" v-if="elementDefinition.contentData">
       <div class="col-md-6">
         <draggable class="draggable" :options="dragOptions" container-id="col1"
                    :list="elementDefinition.contentData.col1">
@@ -64,32 +64,29 @@ The definition JSON contains multiple component defintions in an array. Each def
         </draggable>
       </div>
     </div>`,
-      contentData: {
-        col1: [],
-        col2: []
-      },
-	},
-	...
-	{
-		name: 'Contact form',
-		icon: '<i class="fa fa-envelope"></i>',
-		settings: {
-			content: {
-				destination_email: "default@email.com"
-			},
-			definition: {
-				fields: [
-					{
-						type: 'input',
-						inputType: 'text',
-						label: 'Destination e-mail',
-						model: 'destination_email',
-						validator: VueFormGenerator.validators.email
-					}
-				]
-			}
-		}
-	}
+        contentData: {
+            col1: [],
+            col2: []
+        },
+    },
+    {
+        name: 'Contact form',
+        icon: '<i class="fa fa-envelope"></i>',
+        settings: {
+            content: {
+                destination_email: "default@email.com"
+            },
+            definition: {
+                fields: [{
+                    type: 'input',
+                    inputType: 'text',
+                    label: 'Destination e-mail',
+                    model: 'destination_email',
+                    validator: VueFormGenerator.validators.email
+                }]
+            }
+        }
+    }
 ]
 ```
 
