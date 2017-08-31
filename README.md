@@ -1,7 +1,7 @@
 # Layout Builder UI
 This is the frontend portion of Elements Framework Layouts component.
 
-![Elements Framework UI Demo](http://i.imgur.com/cRQ8Hj6.gif)
+![](https://zippy.gfycat.com/IgnorantPartialKentrosaurus.gif)
 
 The Layout Builder UI is a user interface which takes in JSON component definitions and the initial layout JSON and visualizes the modules. The builder then allows for adding/removing/reordering of elements and editing their settings. The result is a layout JSON that will be submitted to the given URL.
 
