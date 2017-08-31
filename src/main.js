@@ -28,7 +28,7 @@ new Vue({
     return {
       uiElements: window.uiElements,
       layout: window.layout,
-      submissionUrl: 'http://igor-rinkovec.from.hr/hook.php'
+      submissionUrl: window.submissionUrl
     }
   },
   template: '<App :layout="layout" :submitUrl="submissionUrl" :uiElements="uiElements"/>',
